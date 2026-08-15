@@ -1,0 +1,100 @@
+┌─────────────────────────────────────────────────┐
+│         AI ARCHITECTURE ANALYZER v1.0           │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│  INPUT: Any AI/LLM (code, config, weights)     │
+│                                                 │
+│  ANALYZES:                                      │
+│  → Model architecture & structure              │
+│  → Layer composition & connections             │
+│  → Parameter counts & memory usage            │
+│  → Performance bottlenecks                    │
+│  → Training configuration                     │
+│  → Inference pipeline                         │
+│                                                 │
+│  OUTPUT: Full debug report + recommendations   │
+│                                                 │
+└─────────────────────────────────────────────────┘
+SUPPORTED INPUTS:
+├── PyTorch models (.pt, .pth)
+├── TensorFlow/Keras models (.h5, .pb)
+├── HuggingFace models (config.json)
+├── ONNX models (.onnx)
+├── Raw Python model code
+├── Model config files
+└── Running model instances
+ai_analyzer/
+│
+├── core/
+│   ├── __init__.py
+│   ├── analyzer.py          # Main analysis engine
+│   ├── debugger.py          # Debug & profiling tools
+│   ├── inspector.py         # Layer inspection
+│   └── reporter.py          # Report generation
+│
+├── parsers/
+│   ├── __init__.py
+│   ├── pytorch_parser.py    # PyTorch model parser
+│   ├── tensorflow_parser.py # TensorFlow parser
+│   ├── huggingface_parser.py# HuggingFace parser
+│   ├── onnx_parser.py       # ONNX parser
+│   └── config_parser.py     # Config file parser
+│
+├── analyzers/
+│   ├── __init__.py
+│   ├── architecture.py      # Architecture analysis
+│   ├── performance.py       # Performance analysis
+│   ├── memory.py            # Memory profiling
+│   ├── attention.py         # Attention mechanism analysis
+│   └── gradient.py          # Gradient flow analysis
+│
+├── visualizers/
+│   ├── __init__.py
+│   ├── graph_viz.py         # Architecture graphs
+│   ├── attention_viz.py     # Attention maps
+│   └── performance_viz.py   # Performance charts
+│
+├── ui/
+│   ├── dashboard.py         # Main dashboard
+│   └── reports/             # Generated reports
+│
+├── tests/
+│   └── test_analyzer.py
+│
+├── requirements.txt
+└── main.py                  # Entry point
+# requirements.txt
+
+# Core
+torch>=2.0.0
+tensorflow>=2.12.0
+transformers>=4.30.0
+onnx>=1.14.0
+onnxruntime>=1.15.0
+
+# Analysis
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+psutil>=5.9.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+graphviz>=0.20.0
+networkx>=3.1
+
+# UI
+rich>=13.0.0          # Beautiful terminal output
+gradio>=3.35.0        # Web UI (optional)
+streamlit>=1.24.0     # Dashboard (optional)
+
+# Profiling
+memory-profiler>=0.61.0
+line-profiler>=4.0.0
+py-spy>=0.3.14
+
+# Reporting
+jinja2>=3.1.0
+reportlab>=4.0.0
