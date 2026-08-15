@@ -1,0 +1,19 @@
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Run basic analysis
+python main.py
+
+# 3. Run web dashboard
+streamlit run ui/dashboard.py
+
+# 4. Quick one-liner analysis
+python -c "
+from core.analyzer import AIArchitectureAnalyzer
+from transformers import AutoModelForCausalLM
+
+model = AutoModelForCausalLM.from_pretrained('gpt2')
+analyzer = AIArchitectureAnalyzer()
+result = analyzer.analyze(model)
+analyzer.report(result)
+"
